@@ -65,7 +65,7 @@ greet = function () {
     console.log('hey');
 };
 // 実際に使うか渡らないvalueに関しては ? をつけることで、使わなくてもOK
-//Defaultで事前にpassingしてしまう場合は (default = 10) & ? いらない
+//Defaultで事前にpassingしてしまう場合は (default = 10) & question ? はいらない
 // c: number | string = 10
 var add = function (a, b, c) {
     console.log(a + b);
@@ -93,4 +93,22 @@ var logDetail = function (uid, item) {
 // const logs = (user: { name: string, uid: StringOrNum}) => {
 var logs = function (user) {
     console.log("".concat(user.name, " has a uid of ").concat(user.uid));
+};
+//===========　typeが混ざっている場合 ==========================
+//ex:1
+var green;
+//ex:2
+var calc;
+calc = function (numOne, numTwo, action) {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
+};
+//ex:3
+var loglogs;
+loglogs = function (ninja) {
+    console.log("".concat(ninja.name, " is ").concat(ninja.age, " years old"));
 };

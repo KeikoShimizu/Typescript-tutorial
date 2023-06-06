@@ -91,7 +91,7 @@ greet = () => {
 }
 
 // 実際に使うか渡らないvalueに関しては ? をつけることで、使わなくてもOK
-//Defaultで事前にpassingしてしまう場合は (default = 10) & ? いらない
+//Defaultで事前にpassingしてしまう場合は (default = 10) & question ? はいらない
 // c: number | string = 10
 const add = (a: number, b: number, c?: number|string) => {
     console.log(a + b);
@@ -126,7 +126,27 @@ const logs = (user: objWithName) => {
     console.log(`${user.name} has a uid of ${user.uid}`);
 }
 
+//===========　typeが混ざっている場合 ==========================
+//ex:1
+let green: (a: string, b: string) => void;
 
+//ex:2
+let calc:(a: number, b:number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string) => {
+    if(action === 'add'){
+        return numOne + numTwo;
+    }else{
+        return numOne - numTwo;
+    }
+}
+
+//ex:3
+let loglogs: (obj:{name:string, age: number}) => void;
+
+type person = {name:string, age: number}
+loglogs = (ninja: person) => {
+    console.log(`${ninja.name} is ${ninja.age} years old`);
+}
 
 
 
